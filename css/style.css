@@ -1,0 +1,507 @@
+/* GLOBAL RESET AND BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Apply a smooth transition globally to elements that change state */
+    transition: all 0.3s ease-in-out;
+}
+
+:root {
+    --primary-blue: #007BFF;
+    --secondary-green: #28A745;
+    --text-dark: #343A40;
+    --bg-light: #F8F9FA;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Body font */
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Heading font */
+    color: var(--primary-blue);
+    margin-bottom: 0.5em;
+}
+
+/* NAVIGATION AND HEADER STYLING */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin: 0 15px;
+    padding: 5px 0;
+    font-weight: 600;
+    position: relative; /* For the hover effect */
+}
+
+/* Elegant Hover Effect for Navigation Links */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Starts hidden */
+    height: 3px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease-in-out; /* Smooth transition */
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%; /* Slides in on hover/active */
+}
+
+/* BUTTON STYLING (Call to Action) */
+.btn-appointment {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-appointment:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    /* Transition applied by the global * selector */
+}
+
+/* FOOTER STYLING */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border-top: 1px solid #E9ECEF;
+}
+/* --- UTILITY & LAYOUT STYLES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- BUTTON VARIATIONS --- */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 15px;
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+
+/* --- HERO SECTION STYLING --- */
+.hero {
+    /* REPLACE 'placeholder-hero.jpg' with a high-quality, professional image */
+    background: url('../images/placeholder-hero.jpg') no-repeat center center/cover;
+    height: 60vh; /* Viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--white);
+    position: relative;
+    padding-left: 5%;
+}
+
+/* Overlay for better text readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 3em;
+    color: var(--white); /* White text on the dark background */
+}
+
+.mission-statement {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #E9ECEF;
+}
+
+/* --- HIGHLIGHTS SECTION STYLING --- */
+.highlights {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    padding: 20px;
+    border: 1px solid var(--bg-light);
+    border-radius: 8px;
+    text-align: center;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle lift */
+}
+
+.highlight-item .icon {
+    font-size: 2.5em;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.highlight-item h3 {
+    font-size: 1.3em;
+    color: var(--text-dark);
+}
+
+.highlight-item p {
+    font-size: 0.95em;
+    color: #6C757D;
+}
+/* --- DOCTORS PAGE SPECIFIC STYLES --- */
+.page-hero {
+    background-color: var(--bg-light);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 5px solid var(--primary-blue); /* Strong separation */
+}
+
+.page-hero h1 {
+    color: var(--text-dark);
+}
+
+.doctors-directory {
+    padding: 50px 0;
+}
+
+/* --- DOCTOR FILTER TABS STYLING --- */
+.doctor-tabs {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border: 2px solid var(--primary-blue);
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease; /* For smooth hover/active state changes */
+}
+
+.tab-btn:hover {
+    background-color: #E9ECEF; /* Light gray on hover */
+    color: var(--primary-blue);
+}
+
+.tab-btn.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+}
+
+/* --- DOCTOR CARDS GRID STYLING --- */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.doctor-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* ELEGANT HOVER EFFECT */
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    border-color: var(--primary-blue); /* Subtle border highlight */
+}
+
+.doctor-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.doctor-info {
+    padding: 20px 15px;
+}
+
+.doctor-info h3 {
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.doctor-info .specialty {
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.profile-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+/* --- CONTACT PAGE SPECIFIC STYLES --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Info on the left, Form on the right */
+    gap: 50px;
+    padding: 50px 0;
+}
+
+/* Contact Information Styling */
+.contact-info {
+    padding-right: 20px;
+}
+
+.contact-info h2 {
+    margin-bottom: 25px;
+    color: var(--primary-blue);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 1.5em;
+    color: var(--primary-blue);
+    margin-right: 15px;
+    padding-top: 5px;
+}
+
+.info-item h4 {
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.highlight-text {
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.1em;
+}
+
+/* Contact Form Styling */
+.contact-form-container h2 {
+    margin-bottom: 25px;
+    color: var(--primary-blue);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    /* Add focus effect for elegance */
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Map Styling */
+.hospital-map {
+    margin-bottom: 50px;
+}
+
+.hospital-map h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+/* --- SERVICES PAGE SPECIFIC STYLES (ACCORDION) --- */
+.services-list {
+    padding: 50px 0;
+}
+
+.services-list h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.service-item {
+    margin-bottom: 10px;
+    border: 1px solid #DEE2E6; /* Light border for separation */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding: 18px 25px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-header i:first-child { /* Icon next to text */
+    margin-right: 15px;
+    color: var(--primary-blue);
+}
+
+.accordion-header:hover {
+    background-color: #E9ECEF;
+}
+
+.accordion-header.active {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.accordion-header.active i:first-child {
+    color: var(--white);
+}
+
+/* Accordion Content (Initially Hidden) */
+.accordion-content {
+    padding: 0 25px;
+    background-color: var(--white);
+    max-height: 0; /* Key for collapse effect */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.accordion-content p {
+    margin: 15px 0 10px 0;
+}
+
+.accordion-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.accordion-content ul li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+}
+
+.accordion-content ul li::before {
+    content: "•";
+    color: var(--primary-blue);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Chevron Icon Rotation */
+.chevron {
+    transition: transform 0.4s ease-in-out;
+}
+
+.accordion-header.active .chevron {
+    transform: rotate(180deg);
+}

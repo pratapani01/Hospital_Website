@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medics Care Hospital | 24x7 Emergency Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+
+    <header>
+        <div class="logo">Medics Care Hospital</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-appointment">Book an Appointment</a>
+    </header>
+
+   <main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Medical Specialists</h1>
+            <p>Meet our dedicated team of experienced doctors, committed to providing specialized and compassionate care across all departments.</p>
+        </div>
+    </section>
+
+    <section class="doctors-directory container">
+        <div class="doctor-tabs">
+            <button class="tab-btn active" data-specialty="all">All Specialties</button>
+            <button class="tab-btn" data-specialty="cardiology">Cardiology</button>
+            <button class="tab-btn" data-specialty="pediatrics">Pediatrics</button>
+            <button class="tab-btn" data-specialty="orthopedics">Orthopedics</button>
+            <button class="tab-btn" data-specialty="neurology">Neurology</button>
+        </div>
+
+        <div class="doctors-grid">
+
+            <div class="doctor-card" data-specialty="cardiology">
+                <img src="images/doctor-f-1.jpg" alt="Dr. Anya Sharma" class="doctor-photo">
+                <div class="doctor-info">
+                    <h3>Dr. Anya Sharma</h3>
+                    <p class="specialty">Head of Cardiology</p>
+                    <p class="credentials">MBBS, MD, FACC</p>
+                    <a href="#" class="profile-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <div class="doctor-card" data-specialty="pediatrics">
+                <img src="images/doctor-m-1.jpg" alt="Dr. Ravi Singh" class="doctor-photo">
+                <div class="doctor-info">
+                    <h3>Dr. Ravi Singh</h3>
+                    <p class="specialty">Senior Pediatrician</p>
+                    <p class="credentials">MBBS, DCH</p>
+                    <a href="#" class="profile-link">View Profile &rarr;</a>
+                </div>
+            </div>
+            
+            <div class="doctor-card" data-specialty="orthopedics">
+                <img src="images/doctor-m-2.jpg" alt="Dr. Elias Khan" class="doctor-photo">
+                <div class="doctor-info">
+                    <h3>Dr. Elias Khan</h3>
+                    <p class="specialty">Orthopedic Surgeon</p>
+                    <p class="credentials">MBBS, MS (Ortho)</p>
+                    <a href="#" class="profile-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            </div>
+    </section>
+</main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Name. All Rights Reserved.</p>
+        <div class="social-links">
+            </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
