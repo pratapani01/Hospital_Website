@@ -505,3 +505,39 @@ footer {
 .accordion-header.active .chevron {
     transform: rotate(180deg);
 }
+/* Add a new variable for the red color */
+:root {
+    /* Existing variables */
+    --primary-blue: #007BFF;
+    /* ... other variables ... */
+    --accent-red: #DC3545; /* A professional, contrasting red */ 
+}
+
+/* Logo Styling Update */
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.logo .medics-red {
+    color: var(--accent-red); /* Applying the new red color */
+}
+
+.logo .care-blue {
+    color: var(--primary-blue); /* Retaining the blue color */
+}
+/* Animation for Highlight Boxes (Why Choose Us) */
+.highlight-item {
+    /* Existing styles... */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Ensure transition is smooth */
+}
+
+.highlight-item:hover {
+    transform: translateY(-8px) scale(1.02); /* Lifts and slightly scales the box */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* Optional: Add a slight rotation to the icon */
+.highlight-item:hover .icon {
+    transform: rotate(3deg);
+}

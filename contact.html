@@ -10,13 +10,17 @@
 <body>
 
     <header>
-        <div class="logo">Medics Care Hospital</div>
+        <div class="logo">
+    <span class="medics-red">Medics</span>
+    <span class="care-blue">Care</span>
+    <span class="medics-red">Hospital</span>
+</div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" >Home</a></li>
                 <li><a href="doctors.html">Doctors</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
         </nav>
         <a href="#" class="btn-appointment">Book an Appointment</a>
@@ -66,7 +70,7 @@
 
         <div class="contact-form-container">
             <h2>Send Us a Message</h2>
-            <form action="#" method="POST" class="contact-form">
+            <form id="whatsapp-form" class="contact-form">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required>

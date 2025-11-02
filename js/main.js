@@ -49,3 +49,41 @@ accordionHeaders.forEach(header => {
         }
     });
 });
+// --- WhatsApp Form Submission Handler ---
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (Your existing JavaScript code for Doctor Tabs and Accordion) ...
+
+    const contactForm = document.getElementById('whatsapp-form');
+    const whatsappNumber = '918700127481'; // The target number
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the default form submission
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the WhatsApp message body
+            const whatsappMessage = 
+                `*New Inquiry from Medics Care Hospital Website*%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*Subject:* ${subject}%0A%0A` +
+                `*Message:* ${message}`;
+
+            // Create the WhatsApp link
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+            // Redirect the user
+            window.open(whatsappURL, '_blank');
+            
+            // Optionally clear the form after opening WhatsApp
+            contactForm.reset(); 
+
+            alert('Your message is ready! Please send the pre-filled message via WhatsApp.');
+        });
+    }
+});
