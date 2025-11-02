@@ -541,3 +541,113 @@ footer {
 .highlight-item:hover .icon {
     transform: rotate(3deg);
 }
+/* ==================================== */
+/* --- 9. MEDIA QUERIES (RESPONSIVENESS) --- */
+/* ==================================== */
+
+/* --- Mobile Devices (Max Width 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. HEADER & NAVIGATION */
+    header {
+        flex-direction: column; /* Stack logo, nav, and button */
+        padding: 15px 5%;
+        position: static; /* Remove sticky header on mobile for better space */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        margin: 5px 0;
+        padding: 5px 0;
+        display: block;
+    }
+    
+    .btn-appointment {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 2. HOME PAGE (Hero & Highlights) */
+    .hero {
+        height: 50vh;
+        justify-content: center; /* Center content */
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 90%; /* Use more width on mobile */
+    }
+
+    .hero h1 {
+        font-size: 2em; /* Decrease font size */
+    }
+    
+    .hero-actions {
+        display: flex;
+        flex-direction: column; /* Stack action buttons */
+    }
+
+    .btn-primary, .btn-secondary {
+        margin: 5px 0;
+    }
+
+    .highlight-grid {
+        grid-template-columns: 1fr; /* Single column layout for highlights */
+    }
+
+    /* 3. DOCTORS PAGE */
+    .doctor-tabs {
+        display: flex;
+        flex-wrap: wrap; /* Allow tabs to wrap to the next line */
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        margin: 5px;
+        flex: 1 1 45%; /* Max 2 buttons per row */
+        max-width: 45%;
+    }
+
+    /* 4. CONTACT PAGE */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Single column layout for info and form */
+    }
+    
+    .contact-info {
+        padding-right: 0;
+    }
+}
+/* --- BUTTON VARIATIONS --- */
+
+/* .btn-primary remains blue */
+
+.btn-secondary {
+    background-color: transparent;
+    /* CHANGE 1: Use the red accent color for text and border */
+    color: var(--accent-red); 
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    /* CHANGE 2: Use the red accent color for the border */
+    border: 2px solid var(--accent-red); 
+}
+
+.btn-primary:hover {
+    /* ... remains the same ... */
+}
+
+.btn-secondary:hover {
+    /* CHANGE 3: Swap colors on hover (solid red background with white text) */
+    background-color: var(--accent-red); 
+    color: var(--white);
+    /* Ensure border color matches */
+    border-color: var(--accent-red); 
+}
