@@ -1,97 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medics Care Hospital | 24x7 Emergency Care</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medics Care Hospital — Services & Facilities</title>
+  <meta name="description" content="Comprehensive healthcare services at Medics Care Hospital: 24x7 Emergency, ICU, Surgery, Pediatrics, Gynecology, Diagnostics and more." />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 <body>
+  <header class="site-header" role="banner">
+    <a class="header-logo-link" href="index.html" aria-label="Medics Care Hospital home">
+      <div class="logo">
+        <img src="images/logo1.jpg" alt="Medics Care Hospital logo" class="logo-image" />
+        <span class="medics-red">Medics</span><span class="care-blue">Care</span><span class="medics-red">Hospital</span>
+      </div>
+    </a>
 
-    <header>
-        <div class="logo">
-    <span class="medics-red">Medics</span>
-    <span class="care-blue">Care</span>
-    <span class="medics-red">Hospital</span>
-</div>
-        <nav>
-            <ul>
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="doctors.html">Doctors</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <a href="contact.html" class="btn-appointment">Book an Appointment</a>
-    </header>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="services.html" class="active" aria-current="page">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
 
-    <main>
-    <section class="page-hero">
-        <div class="container">
-            <h1>Comprehensive Healthcare Services</h1>
-            <p>We offer a full spectrum of specialized medical services, delivered by experts using the latest technology.</p>
-        </div>
+    <a href="contact.html" class="btn-appointment">Book an Appointment</a>
+  </header>
+
+  <main>
+    <!-- Facilities banner (use your uploaded image named facilities.jpg) -->
+    <section class="page-hero" aria-hidden="false">
+      <div class="container">
+        <h1>Comprehensive Healthcare Services & Facilities</h1>
+        <p>Our hospital provides a wide range of clinical and support services — available 24/7 to serve you and your family.</p>
+      </div>
     </section>
 
-    <section class="services-list container">
-        <h2>Our Key Departments</h2>
-        
-        <div class="service-item">
-            <button class="accordion-header" data-service="cardiology">
-                <i class="fas fa-heartbeat"></i> Cardiology & Heart Health
-                <span class="chevron fas fa-chevron-down"></span>
-            </button>
-            <div class="accordion-content">
-                <p>Our Cardiology department offers advanced diagnostics, non-invasive procedures, and complex cardiac surgery. We specialize in treating coronary artery disease, arrhythmias, and heart failure.</p>
-                <ul>
-                    <li>ECG and Stress Tests</li>
-                    <li>Angioplasty and Stent Placement</li>
-                    <li>Cardiac Rehabilitation Program</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <button class="accordion-header" data-service="pediatrics">
-                <i class="fas fa-child"></i> Pediatrics and Child Care
-                <span class="chevron fas fa-chevron-down"></span>
-            </button>
-            <div class="accordion-content">
-                <p>A dedicated team providing comprehensive healthcare for infants, children, and adolescents, focusing on preventive care and urgent medical needs in a child-friendly environment.</p>
-                <ul>
-                    <li>Well-Child Checkups and Vaccinations</li>
-                    <li>Pediatric Emergency Care</li>
-                    <li>Adolescent Health Services</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="service-item">
-            <button class="accordion-header" data-service="emergency">
-                <i class="fas fa-ambulance"></i> 24/7 Emergency and Trauma
-                <span class="chevron fas fa-chevron-down"></span>
-            </button>
-            <div class="accordion-content">
-                <p>Our trauma center is fully equipped and staffed by specialists 24 hours a day for immediate, life-saving intervention for serious injuries and critical illnesses.</p>
-                <ul>
-                    <li>Rapid Triage and Assessment</li>
-                    <li>Surgical and Intensive Care Units</li>
-                    <li>Poison Control Services</li>
-                </ul>
-            </div>
-        </div>
-        
+    <!-- Optional visual banner showing the facilities image -->
+    <section class="facilities-banner container" style="margin: 30px auto;">
+      <!-- Save the image you uploaded as images/facilities.jpg to show here -->
+      <img src="images/facilities.jpg" alt="Facilities available at Medics Care Hospital" style="width:100%; border-radius:8px; box-shadow: 0 6px 16px rgba(0,0,0,0.08);" />
     </section>
-</main>
 
-    <footer>
-        <p>&copy; 2024 Hospital Name. All Rights Reserved.</p>
-        <div class="social-links">
-            </div>
-    </footer>
+    <!-- Accordion list for main services (each item maps to a facility from your image) -->
+    <section class="services-list container" aria-labelledby="services-heading">
+      <h2 id="services-heading">Our Key Departments & Facilities</h2>
 
-    <script src="js/main.js"></script>
+      <!-- 24x7 Emergency -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="emergency" aria-expanded="false" aria-controls="emergency-content">
+          <i class="fas fa-ambulance" aria-hidden="true"></i> 24x7 Emergency Services
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="emergency-content" class="accordion-content" hidden>
+          <p>Round-the-clock emergency care with rapid triage, resuscitation bays, on-call specialists and a fully equipped trauma area for urgent life-saving interventions.</p>
+          <ul>
+            <li>Rapid triage and resuscitation</li>
+            <li>Dedicated trauma team</li>
+            <li>Immediate access to imaging & labs</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ICU Facility -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="icu" aria-expanded="false" aria-controls="icu-content">
+          <i class="fas fa-procedures" aria-hidden="true"></i> ICU / Critical Care Unit
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="icu-content" class="accordion-content" hidden>
+          <p>Multi-disciplinary ICU for critically ill patients with ventilatory support, monitoring and specialist intensivist care.</p>
+          <ul>
+            <li>Ventilator support and invasive monitoring</li>
+            <li>Step-down unit & high-dependency care</li>
+            <li>24x7 critical care nursing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Medicine & Surgical Facility -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="medicine-surgery" aria-expanded="false" aria-controls="medicine-surgery-content">
+          <i class="fas fa-notes-medical" aria-hidden="true"></i> Medicine & Surgical Facilities
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="medicine-surgery-content" class="accordion-content" hidden>
+          <p>General medicine and surgical services covering inpatient and outpatient care, with modern OT setups for elective and emergency surgeries.</p>
+          <ul>
+            <li>Fully equipped operating theatres</li>
+            <li>Pre-op and post-op care</li>
+            <li>Ambulatory (daycare) procedures</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- General Medicine -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="general-medicine" aria-expanded="false" aria-controls="general-medicine-content">
+          <i class="fas fa-stethoscope" aria-hidden="true"></i> General Medicine
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="general-medicine-content" class="accordion-content" hidden>
+          <p>Experienced physicians for acute and chronic medical conditions with diagnostic support and personalized care plans.</p>
+          <ul>
+            <li>Diabetes and hypertension management</li>
+            <li>Infectious disease care</li>
+            <li>Chronic disease follow-up clinics</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- General Surgery -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="general-surgery" aria-expanded="false" aria-controls="general-surgery-content">
+          <i class="fas fa-scalpel" aria-hidden="true"></i> General Surgery
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="general-surgery-content" class="accordion-content" hidden>
+          <p>Comprehensive general surgical services — emergency and elective — supported by modern anesthesia and post-op care.</p>
+          <ul>
+            <li>Open and laparoscopic surgery</li>
+            <li>Hernia, appendicitis and GI surgeries</li>
+            <li>Post-operative rehabilitation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Obs & Gynae -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="obsgyn" aria-expanded="false" aria-controls="obsgyn-content">
+          <i class="fas fa-baby" aria-hidden="true"></i> Obstetrics & Gynaecology
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="obsgyn-content" class="accordion-content" hidden>
+          <p>Maternal and reproductive health services including antenatal care, normal & assisted deliveries and gynecologic surgery.</p>
+          <ul>
+            <li>Antenatal & postnatal care</li>
+            <li>Normal and cesarean deliveries</li>
+            <li>Women’s health clinics and family planning</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pediatrics OPD & IPD -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="pediatrics" aria-expanded="false" aria-controls="pediatrics-content">
+          <i class="fas fa-child" aria-hidden="true"></i> Pediatrics (OPD & IPD)
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="pediatrics-content" class="accordion-content" hidden>
+          <p>Child-friendly clinical services for infants, children and adolescents with immunization, growth monitoring and pediatric emergency care.</p>
+          <ul>
+            <li>Well-child visits & vaccinations</li>
+            <li>Pediatric emergency & inpatient care</li>
+            <li>Neonatal support & referrals</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Laparoscopic Surgery -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="laparoscopy" aria-expanded="false" aria-controls="laparoscopy-content">
+          <i class="fas fa-syringe" aria-hidden="true"></i> Laparoscopic & Minimally Invasive Surgery
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="laparoscopy-content" class="accordion-content" hidden>
+          <p>Advanced laparoscopic procedures for quicker recovery, smaller scars and shorter hospital stays.</p>
+          <ul>
+            <li>Gall bladder, appendicectomy and hernia repair</li>
+            <li>Diagnostic laparoscopy</li>
+            <li>Post-op pain management clinic</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Orthopedics Surgery -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="orthopedics" aria-expanded="false" aria-controls="orthopedics-content">
+          <i class="fas fa-bone" aria-hidden="true"></i> Orthopedics & Trauma Surgery
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="orthopedics-content" class="accordion-content" hidden>
+          <p>Bone, joint and trauma management including fracture care, joint replacements and sports injury treatment.</p>
+          <ul>
+            <li>Fracture fixation & casting</li>
+            <li>Joint replacement services</li>
+            <li>Arthroscopy and sports medicine</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pathology / Lab -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="pathology" aria-expanded="false" aria-controls="pathology-content">
+          <i class="fas fa-vials" aria-hidden="true"></i> Pathology & Diagnostic Laboratory
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="pathology-content" class="accordion-content" hidden>
+          <p>In-house laboratory services supporting timely diagnosis with routine and specialized tests.</p>
+          <ul>
+            <li>Biochemistry, hematology, microbiology</li>
+            <li>Pre-op and emergency lab testing</li>
+            <li>Sample collection & home collection (on request)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Homoeopathic OPD -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="homeopathy" aria-expanded="false" aria-controls="homeopathy-content">
+          <i class="fas fa-leaf" aria-hidden="true"></i> Homoeopathic OPD
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="homeopathy-content" class="accordion-content" hidden>
+          <p>Complementary homoeopathic consultations for patients seeking alternative medical approaches alongside conventional care.</p>
+          <ul>
+            <li>Outpatient consultations</li>
+            <li>Chronic condition support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 24x7 Ambulance -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="ambulance" aria-expanded="false" aria-controls="ambulance-content">
+          <i class="fas fa-phone-square-alt" aria-hidden="true"></i> 24x7 Ambulance Facility
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="ambulance-content" class="accordion-content" hidden>
+          <p>Emergency ambulance services with trained paramedics and life-support equipment for rapid transport.</p>
+          <ul>
+            <li>Basic and advanced life support ambulances</li>
+            <li>Inter-hospital transfers and emergency pickup</li>
+            <li>Telephone dispatch & GPS-enabled routing</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EXTRA FEATURES: add-on services that boost patient experience -->
+      <div class="service-item">
+        <button class="accordion-header" data-service="extra-features" aria-expanded="false" aria-controls="extra-features-content">
+          <i class="fas fa-plus-circle" aria-hidden="true"></i> Extra Features & Patient Support
+          <span class="chevron fas fa-chevron-down" aria-hidden="true"></span>
+        </button>
+        <div id="extra-features-content" class="accordion-content" hidden>
+          <p>Additional services designed to improve patient convenience, outcomes and continuity of care.</p>
+          <ul>
+            <li><strong>Pharmacy & Medical Store:</strong> On-site pharmacy open extended hours.</li>
+            <li><strong>Diagnostic Imaging:</strong> X-ray, Ultrasound, CT scan (arrange locally or via partner).</li>
+            <li><strong>Physiotherapy & Rehabilitation:</strong> Post-operative and sports rehab program.</li>
+            <li><strong>Dialysis Support:</strong> Tie-ups or in-house dialysis support for chronic kidney patients.</li>
+            <li><strong>Telemedicine / Online Consultations:</strong> Remote follow-ups and specialist teleconsults.</li>
+            <li><strong>Preventive Health Checkups:</strong> Customizable health packages and executive checkups.</li>
+            <li><strong>Insurance & Cashless Support:</strong> Billing & insurance assistance for cashless claims.</li>
+            <li><strong>Nutrition & Counseling:</strong> Dietitians, mental health counselors and smoking cessation support.</li>
+            <li><strong>Blood Bank Partnerships:</strong> Tie-ups for blood & blood component support.</li>
+            <li><strong>Homecare Services:</strong> Post-discharge nursing and sample collection at home (on request).</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Medics Care Hospital. All Rights Reserved.</p>
+      <div class="social-links" aria-hidden="true"></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

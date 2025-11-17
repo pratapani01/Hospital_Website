@@ -1,91 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medics Care Hospital | 24x7 Emergency Care</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medics Care Hospital — Our Doctors</title>
+  <meta name="description" content="Meet the specialist doctors at Medics Care Hospital. Cardiology, Pediatrics, Orthopedics and more." />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 <body>
+  <header class="site-header" role="banner">
+    <a class="header-logo-link" href="index.html" aria-label="Medics Care Hospital home">
+      <div class="logo">
+        <img src="images/logo1.jpg" alt="Medics Care Hospital logo" class="logo-image" />
+        <span class="medics-red">Medics</span>
+        <span class="care-blue">Care</span>
+        <span class="medics-red">Hospital</span>
+      </div>
+    </a>
 
-    <header>
-        <div class="logo">
-    <span class="medics-red">Medics</span>
-    <span class="care-blue">Care</span>
-    <span class="medics-red">Hospital</span>
-</div>
-        <nav>
-            <ul>
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="doctors.html" class="active">Doctors</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <a href="contact.html" class="btn-appointment">Book an Appointment</a>
-    </header>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="doctors.html" class="active" aria-current="page">Doctors</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
 
-   <main>
+    <a href="contact.html" class="btn-appointment">Book an Appointment</a>
+  </header>
+
+  <main>
     <section class="page-hero">
-        <div class="container">
-            <h1>Our Medical Specialists</h1>
-            <p>Meet our dedicated team of experienced doctors, committed to providing specialized and compassionate care across all departments.</p>
-        </div>
+      <div class="container">
+        <h1>Our Medical Specialists</h1>
+        <p>Meet our dedicated team of experienced doctors, committed to providing specialized and compassionate care across all departments.</p>
+      </div>
     </section>
 
-    <section class="doctors-directory container">
-        <div class="doctor-tabs">
-            <button class="tab-btn active" data-specialty="all">All Specialties</button>
-            <button class="tab-btn" data-specialty="cardiology">Cardiology</button>
-            <button class="tab-btn" data-specialty="pediatrics">Pediatrics</button>
-            <button class="tab-btn" data-specialty="orthopedics">Orthopedics</button>
-            <button class="tab-btn" data-specialty="neurology">Neurology</button>
+    <section class="doctors-directory container" aria-labelledby="doctors-heading">
+      <h2 id="doctors-heading" class="visually-hidden">Doctors Directory</h2>
+
+      <div class="doctor-tabs" role="tablist" aria-label="Filter by specialty">
+        <button class="tab-btn active" data-specialty="all" role="tab" aria-selected="true">All Specialties</button>
+        <button class="tab-btn" data-specialty="cardiology" role="tab">Cardiology</button>
+        <button class="tab-btn" data-specialty="pediatrics" role="tab">Pediatrics</button>
+        <button class="tab-btn" data-specialty="orthopedics" role="tab">Orthopedics</button>
+        <button class="tab-btn" data-specialty="neurology" role="tab">Neurology</button>
+        <button class="tab-btn" data-specialty="gastro">Gastro</button>
+<button class="tab-btn" data-specialty="pulmo">Pulmonology</button>
+<button class="tab-btn" data-specialty="physician">Physician</button>
+<button class="tab-btn" data-specialty="surgery">Surgery</button>
+<button class="tab-btn" data-specialty="gyn">Gynaecology</button>
+      </div>
+
+      <div class="doctors-grid" aria-live="polite">
+
+    <!-- Dr. Alok Sangam — Gastro -->
+    <article class="doctor-card" data-specialty="gastro">
+        <img src="images/doctor-m-1.jpg" alt="Dr. Alok Sangam" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Alok Sangam</h3>
+            <p class="specialty">MD, DM (Gastro)</p>
+            <p class="credentials">Gastroenterology</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
         </div>
+    </article>
 
-        <div class="doctors-grid">
+    <!-- Dr. Amritesh Mishra — Pulmonology -->
+    <article class="doctor-card" data-specialty="pulmo">
+        <img src="images/doctor-m-2.jpg" alt="Dr. Amritesh Mishra" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Amritesh Mishra</h3>
+            <p class="specialty">MD (Pulmo)</p>
+            <p class="credentials">Pulmonology</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
 
-            <div class="doctor-card" data-specialty="cardiology">
-                <img src="images/doctor-f-1.jpg" alt="Dr. Anya Sharma" class="doctor-photo">
-                <div class="doctor-info">
-                    <h3>Dr. Anya Sharma</h3>
-                    <p class="specialty">Head of Cardiology</p>
-                    <p class="credentials">MBBS, MD, FACC</p>
-                    <a href="#" class="profile-link">View Profile &rarr;</a>
-                </div>
-            </div>
+    <!-- Dr. Sidharth Tiwari — Orthopedics -->
+    <article class="doctor-card" data-specialty="orthopedics">
+        <img src="images/doctor-m-3.jpg" alt="Dr. Sidharth Tiwari" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Sidharth Tiwari</h3>
+            <p class="specialty">MS (Ortho)</p>
+            <p class="credentials">Orthopedic Surgeon</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+    <!-- Dr. Rohit Bhadauria — Physician -->
+    <article class="doctor-card" data-specialty="physician">
+        <img src="images/doctor-m-9.jpg" alt="Dr. Rohit Bhadauria" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Rohit Bhadauria</h3>
+            <p class="specialty">(Physician)</p>
+            <p class="credentials">General Medicine</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+    
 
-            <div class="doctor-card" data-specialty="pediatrics">
-                <img src="images/doctor-m-1.jpg" alt="Dr. Ravi Singh" class="doctor-photo">
-                <div class="doctor-info">
-                    <h3>Dr. Ravi Si</h3>
-                    <p class="specialty">Senior Pediatrician</p>
-                    <p class="credentials">MBBS, DCH</p>
-                    <a href="#" class="profile-link">View Profile &rarr;</a>
-                </div>
-            </div>
-            
-            <div class="doctor-card" data-specialty="orthopedics">
-                <img src="images/doctor-m-2.jpg" alt="Dr. Elias Khan" class="doctor-photo">
-                <div class="doctor-info">
-                    <h3>Dr. Elias Khan</h3>
-                    <p class="specialty">Orthopedic Surgeon</p>
-                    <p class="credentials">MBBS, MS (Ortho)</p>
-                    <a href="#" class="profile-link">View Profile &rarr;</a>
-                </div>
-            </div>
+    <!-- Dr. Devendra Mishra — Physician -->
+    <article class="doctor-card" data-specialty="physician">
+        <img src="images/doctor-m-4.jpg" alt="Dr. Devendra Mishra" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Devendra Mishra</h3>
+            <p class="specialty">(Physician)</p>
+            <p class="credentials">General Medicine</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
 
-            </div>
+    <!-- Dr. Kamlesh Agarwal — Neuro -->
+    <article class="doctor-card" data-specialty="neuro">
+        <img src="images/doctor-m-5.jpg" alt="Dr. Kamlesh Agarwal" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Kamlesh Agarwal</h3>
+            <p class="specialty">(Neuro Surgeon)</p>
+            <p class="credentials">Neurosurgery</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+
+    <!-- Dr. Navendu Mohan — General Surgery -->
+    <article class="doctor-card" data-specialty="surgery">
+        <img src="images/doctor-m-6.jpg" alt="Dr. Navendu Mohan" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Navendu Mohan</h3>
+            <p class="specialty">(General Surgeon)</p>
+            <p class="credentials">General Surgery</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+
+    <!-- Dr. Rohit Agarwal — Physician -->
+    <article class="doctor-card" data-specialty="physician">
+        <img src="images/doctor-m-7.jpg" alt="Dr. Rohit Agarwal" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Rohit Agarwal</h3>
+            <p class="specialty">MD</p>
+            <p class="credentials">General Medicine</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+
+    <!-- Dr. Rohit Singh — Surgery -->
+    <article class="doctor-card" data-specialty="surgery">
+        <img src="images/doctor-m-8.jpg" alt="Dr. Rohit Singh" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Rohit Singh</h3>
+            <p class="specialty">MS (Surg.)</p>
+            <p class="credentials">General Surgery</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+
+    <!-- Dr. Vartika Awasthi — Gynecology -->
+    <article class="doctor-card" data-specialty="gyn">
+        <img src="images/doctor-f-1.jpg" alt="Dr. Vartika Awasthi" class="doctor-photo" />
+        <div class="doctor-info">
+            <h3>Dr. Vartika Awasthi</h3>
+            <p class="specialty">MS (Gyn)</p>
+            <p class="credentials">Gynecology</p>
+            <a href="#" class="profile-link">View Profile &rarr;</a>
+        </div>
+    </article>
+
+</div>
+
     </section>
-</main>
+  </main>
 
-    <footer>
-        <p>&copy; 2024 Hospital Name. All Rights Reserved.</p>
-        <div class="social-links">
-            </div>
-    </footer>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Medics Care Hospital. All Rights Reserved.</p>
+      <div class="social-links" aria-hidden="true"></div>
+    </div>
+  </footer>
 
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

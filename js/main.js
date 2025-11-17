@@ -1,89 +1,139 @@
+// js/main.js
 document.addEventListener('DOMContentLoaded', () => {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const doctorCards = document.querySelectorAll('.doctor-card');
+  // ---------- Doctor Tabs (doctors.html) ----------
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const doctorCards = document.querySelectorAll('.doctor-card');
 
+  if (tabButtons.length && doctorCards.length) {
     tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // 1. Update Active Tab State
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            // 2. Filter Doctors
-            const specialty = button.getAttribute('data-specialty');
-
-            doctorCards.forEach(card => {
-                const cardSpecialty = card.getAttribute('data-specialty');
-                
-                // Show all if 'all' is clicked, otherwise check specialty match
-                if (specialty === 'all' || specialty === cardSpecialty) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
         });
-    });
-});
-// --- Accordion Functionality for Services Page ---
-const accordionHeaders = document.querySelectorAll('.accordion-header');
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
 
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        
-        // Check if the current header is already active
+        const specialty = button.getAttribute('data-specialty');
+        doctorCards.forEach(card => {
+          const cardSpecialty = card.getAttribute('data-specialty') || '';
+          if (specialty === 'all' || specialty === cardSpecialty) {
+            card.style.display = '';
+            card.removeAttribute('aria-hidden');
+          } else {
+            card.style.display = 'none';
+            card.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+    });
+  }
+
+  // ---------- Accordion (services.html) ----------
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  if (accordionHeaders.length) {
+    accordionHeaders.forEach(header => {
+      const content = header.nextElementSibling;
+      if (!content) return;
+
+      // Ensure aria attributes
+      header.setAttribute('aria-expanded', content.hasAttribute('hidden') ? 'false' : 'true');
+
+      header.addEventListener('click', () => {
         const isActive = header.classList.contains('active');
 
-        // Close all other open sections (optional, but cleaner)
+        // Close all
         accordionHeaders.forEach(h => {
-            h.classList.remove('active');
-            h.nextElementSibling.style.maxHeight = 0;
-            h.nextElementSibling.style.padding = '0 25px'; // Reset padding when closing
+          const c = h.nextElementSibling;
+          h.classList.remove('active');
+          h.setAttribute('aria-expanded', 'false');
+          if (c) {
+            c.style.maxHeight = null;
+            c.setAttribute('hidden', '');
+          }
         });
 
-        // Toggle the clicked section
+        // Open clicked if it wasn't active
         if (!isActive) {
-            header.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 36 + 'px'; // +36 for top/bottom padding
-            content.style.padding = '18px 25px'; // Apply desired padding when open
+          header.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+          if (content) {
+            content.removeAttribute('hidden');
+            // expand smoothly
+            const height = content.scrollHeight;
+            content.style.maxHeight = height + 36 + 'px';
+          }
         }
+      });
     });
+  }
+
+  // ---------- WhatsApp form handler (contact.html) ----------
+  const contactForm = document.getElementById('whatsapp-form');
+  const whatsappNumber = '918700127481'; // country code + number, no plus
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Basic trimming & validation
+      const name = (document.getElementById('name').value || '').trim();
+      const email = (document.getElementById('email').value || '').trim();
+      const subject = (document.getElementById('subject').value || '').trim();
+      const message = (document.getElementById('message').value || '').trim();
+
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields before sending.');
+        return;
+      }
+
+      // Build message (use encodeURIComponent)
+      const whatsappMessage =
+        `*New Inquiry from Medics Care Hospital Website*\n\n` +
+        `*Name:* ${name}\n` +
+        `*Email:* ${email}\n` +
+        `*Subject:* ${subject}\n\n` +
+        `*Message:* ${message}`;
+
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      // Open WhatsApp Web in a new tab
+      window.open(url, '_blank');
+
+      // Reset form and notify user
+      contactForm.reset();
+      alert('A WhatsApp window has been opened with your message. Please press send there to submit.');
+    });
+  }
 });
-// --- WhatsApp Form Submission Handler ---
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (Your existing JavaScript code for Doctor Tabs and Accordion) ...
+// Mobile hamburger toggle + close on link click
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.querySelector('nav');
 
-    const contactForm = document.getElementById('whatsapp-form');
-    const whatsappNumber = '918700127481'; // The target number
+if (hamburgerBtn && navMenu) {
+  hamburgerBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    // toggle aria
+    const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+    hamburgerBtn.setAttribute('aria-expanded', String(!expanded));
+  });
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Stop the default form submission
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Construct the WhatsApp message body
-            const whatsappMessage = 
-                `*New Inquiry from Medics Care Hospital Website*%0A%0A` +
-                `*Name:* ${name}%0A` +
-                `*Email:* ${email}%0A` +
-                `*Subject:* ${subject}%0A%0A` +
-                `*Message:* ${message}`;
-
-            // Create the WhatsApp link
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-            // Redirect the user
-            window.open(whatsappURL, '_blank');
-            
-            // Optionally clear the form after opening WhatsApp
-            contactForm.reset(); 
-
-            alert('Your message is ready! Please send the pre-filled message via WhatsApp.');
-        });
+  // close when a link inside nav is clicked (improves UX)
+  navMenu.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'A') {
+      navMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
     }
-});
+  });
+
+  // optional: close on outside click (click outside nav)
+  document.addEventListener('click', (e) => {
+    const insideHeader = e.composedPath().includes(navMenu) || e.composedPath().includes(hamburgerBtn);
+    if (!insideHeader && navMenu.classList.contains('open')) {
+      navMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}

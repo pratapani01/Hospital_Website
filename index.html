@@ -1,80 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medics Care Hospital | 24x7 Emergency Care</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medics Care Hospital | 24x7 Emergency Care</title>
+  <meta name="description" content="Medics Care Hospital — 24/7 emergency, experienced doctors, advanced technology and patient-first care." />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
 <body>
+  <header class="site-header" role="banner">
+    <a class="header-logo-link" href="index.html" aria-label="Medics Care Hospital home">
+      <div class="logo">
+        <img src="images/logo1.jpg" alt="Medics Care Hospital logo" class="logo-image" />
+        <span class="medics-red">Medics</span>
+        <span class="care-blue">Care</span>
+        <span class="medics-red">Hospital</span>
+      </div>
+    </a>
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+</button>
 
-    <header>
-        <div class="logo">
-    <span class="medics-red">Medics</span>
-    <span class="care-blue">Care</span>
-    <span class="medics-red">Hospital</span>
-</div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="doctors.html">Doctors</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <a href="contact.html" class="btn-appointment">Book an Appointment</a>
-    </header>
 
-    <main>
-        <main>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <!-- inside nav ul (add near the other li links) -->
+<li class="appointment-mobile"><a href="contact.html">Book an Appointment</a></li>
+
+      </ul>
+    </nav>
+
+    <a href="contact.html" class="btn-appointment">Book an Appointment</a>
+  </header>
+
+  <main>
     <section class="hero">
-        <div class="hero-content">
-            <h1>Excellence in Care, Right Here.</h1>
-            <p class="mission-statement">
-                Your health is our mission. We combine advanced medical technology with compassionate, patient-centered care to serve our community 24/7.
-            </p>
-            <div class="hero-actions">
-                <a href="doctors.html" class="btn-primary">Meet Our Specialists</a>
-                <a href="contact.html" class="btn-secondary">Emergency: +91 8700127481</a>
-            </div>
+      <div class="hero-content container">
+        <h1>Excellence in Care, Right Here.</h1>
+        <p class="mission-statement">
+          Your health is our mission. We combine advanced medical technology with compassionate, patient-centered care to serve our community 24/7.
+        </p>
+        <div class="hero-actions">
+          <a href="doctors.html" class="btn-primary">Meet Our Specialists</a>
+          <a href="contact.html" class="btn-secondary" aria-label="Emergency phone number">Emergency: +91 8700127481</a>
         </div>
+      </div>
     </section>
 
-    <section class="highlights container">
-        <h2>Why Choose Us?</h2>
-        <div class="highlight-grid">
-            <div class="highlight-item">
-                <i class="icon fas fa-user-md"></i>
-                <h3>Experienced Doctors</h3>
-                <p>Over 100 board-certified specialists across 15 departments.</p>
-            </div>
-            <div class="highlight-item">
-                <i class="icon fas fa-ambulance"></i>
-                <h3>24/7 Emergency</h3>
-                <p>Dedicated trauma center ready to provide critical care at any hour.</p>
-            </div>
-            <div class="highlight-item">
-                <i class="icon fas fa-award"></i>
-                <h3>Advanced Technology</h3>
-                <p>State-of-the-art diagnostic and surgical equipment for precision.</p>
-            </div>
-            <div class="highlight-item">
-                <i class="icon fas fa-heartbeat"></i>
-                <h3>Patient-First Approach</h3>
-                <p>We believe in treating the person, not just the condition.</p>
-            </div>
-        </div>
+    <section class="highlights container" aria-labelledby="why-choose-us">
+      <h2 id="why-choose-us">Why Choose Us?</h2>
+      <div class="highlight-grid">
+        <article class="highlight-item">
+          <i class="icon fas fa-user-md" aria-hidden="true"></i>
+          <h3>Experienced Doctors</h3>
+          <p>Over 100 board-certified specialists across 15 departments.</p>
+        </article>
+
+        <article class="highlight-item">
+          <i class="icon fas fa-ambulance" aria-hidden="true"></i>
+          <h3>24/7 Emergency</h3>
+          <p>Dedicated trauma center ready to provide critical care at any hour.</p>
+        </article>
+
+        <article class="highlight-item">
+          <i class="icon fas fa-award" aria-hidden="true"></i>
+          <h3>Advanced Technology</h3>
+          <p>State-of-the-art diagnostic and surgical equipment for precision.</p>
+        </article>
+
+        <article class="highlight-item">
+          <i class="icon fas fa-heartbeat" aria-hidden="true"></i>
+          <h3>Patient-First Approach</h3>
+          <p>We believe in treating the person, not just the condition.</p>
+        </article>
+      </div>
     </section>
-</main>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Medics Care Hospital. All Rights Reserved.</p>
-        <div class="social-links">
-            </div>
-    </footer>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Medics Care Hospital. All Rights Reserved.</p>
+      <div class="social-links" aria-hidden="true"></div>
+    </div>
+  </footer>
 
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

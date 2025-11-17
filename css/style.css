@@ -651,3 +651,256 @@ footer {
     /* Ensure border color matches */
     border-color: var(--accent-red); 
 }
+/* Update HEADER STYLING */
+header {
+    /* Ensure there is space for the entire logo section on the left */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    /* ... other styles ... */
+}
+
+/* NEW: Wrapper link for the logo and text */
+.header-logo-link {
+    text-decoration: none; /* Remove underline from the link */
+    display: flex; /* Helps align the logo section with the navigation */
+    align-items: center;
+}
+
+/* Updated: Logo Text Container Styling */
+.logo {
+    display: flex; /* KEY: Use Flexbox to align image and text horizontally */
+    align-items: center; /* Vertically center the image and text */
+    
+    font-size: 1.6em; 
+    font-weight: 800;
+    line-height: 1.2; /* Adjust line-height to fix vertical alignment */
+}
+
+/* NEW: Logo Image Styling */
+.logo-image {
+    height: 40px; /* Set a fixed height for the logo */
+    width: auto;
+    margin-right: 8px; /* Add a small space between the logo image and the text */
+    vertical-align: middle; /* Ensures better baseline alignment */
+}
+
+.logo .medics-red,
+.logo .care-blue {
+    /* Ensure text parts are displayed inline for correct wrapping */
+    display: inline;
+    white-space: nowrap; /* Prevent words from breaking awkwardly */
+}
+
+
+/* --- Mobile Media Query Fix (Responsiveness) --- */
+@media (max-width: 768px) {
+    /* If you added flex-direction: row in the last step, 
+       this ensures the logo and text stay together */
+    .header-logo-link {
+        order: 1; /* Keep logo at the top left */
+        margin-bottom: 10px;
+    }
+    
+    .logo {
+        /* On small screens, text may need to be slightly smaller */
+        font-size: 1.4em; 
+    }
+    
+    .logo-image {
+        height: 35px; /* Slightly smaller logo on mobile */
+    }
+    
+    /* ... (rest of the media query styles) ... */
+}
+/* Make hero text left-aligned on larger screens, centered on mobile */
+.hero {
+  justify-content: flex-start; /* already present; ensures content sits left */
+  padding-left: 5%;
+}
+
+.hero-content {
+  text-align: left;      /* left-align headings and paragraphs */
+  margin-left: 0;        /* ensure it starts at container padding */
+  max-width: 50%;        /* keep the same width you had before */
+}
+
+/* Keep it centered on small screens for better readability */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+/* ------------------------ */
+/* HAMBURGER MENU (MOBILE)  */
+/* ------------------------ */
+
+/* Hide hamburger on desktop */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+/* Mobile Navigation (hidden by default) */
+nav {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Stack header */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Hide nav initially */
+    nav {
+        max-height: 0;
+        width: 100%;
+    }
+
+    /* Show when active */
+    nav.open {
+        max-height: 300px; /* enough for 4 links */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+        text-align: center;
+        background: var(--white);
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .btn-appointment {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+/* -------- Mobile header & hamburger fixes -------- */
+
+/* ensure header uses this class name if you used .site-header earlier */
+.site-header {
+  position: sticky; /* keep sticky on desktop too */
+  top: 0;
+  z-index: 1200; /* ensure header sits above hero */
+  background: var(--white); /* ensure header background hides content under it */
+}
+
+/* compact header row on mobile: hamburger + logo only */
+@media (max-width: 768px) {
+  /* Header layout */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  /* hamburger visible and left aligned */
+  .hamburger {
+    display: block;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: var(--primary-blue);
+    padding: 6px;
+    margin-right: 6px;
+    z-index: 1300; /* above nav */
+  }
+
+  /* logo centered (flex:1 keeps it in middle) */
+  .header-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  /* hide the large desktop appointment button on mobile to avoid overlap */
+  .btn-appointment {
+    display: none;
+  }
+
+  /* mobile appointment link inside nav (hidden on desktop via earlier CSS) */
+  .appointment-mobile {
+    display: block;
+    margin: 12px 0;
+  }
+  .appointment-mobile a {
+    display: inline-block;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding: 10px 12px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  /* navigation overlay: position absolutely beneath header */
+  nav {
+    position: absolute;
+    top: 100%;          /* place right below header */
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.28s ease-in-out;
+    z-index: 1250;
+  }
+
+  /* when open, allow enough height to show links */
+  nav.open {
+    max-height: 420px; /* adjust if you have more menu items */
+  }
+
+  /* menu list styles for mobile */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    gap: 6px;
+  }
+  nav ul li a {
+    display: block;
+    padding: 12px 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  /* ensure hero doesn't jump under the absolute nav when open:
+     add a small top padding to .hero so content stays visible */
+  .hero {
+    padding-top: 12px; /* header uses small height now */
+  }
+
+  /* small tweak: reduce hero-content max-width so it looks good on mobile */
+  .hero-content {
+    max-width: 90%;
+  }
+}
