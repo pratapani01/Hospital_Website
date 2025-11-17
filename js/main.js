@@ -1,139 +1,157 @@
-// js/main.js
-document.addEventListener('DOMContentLoaded', () => {
-  // ---------- Doctor Tabs (doctors.html) ----------
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const doctorCards = document.querySelectorAll('.doctor-card');
+// js/main.js — cleaned & consolidated
+(function () {
+  const whatsappNumber = '918700127481'; // no plus sign
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (tabButtons.length && doctorCards.length) {
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        tabButtons.forEach(btn => {
-          btn.classList.remove('active');
-          btn.setAttribute('aria-selected', 'false');
-        });
-        button.classList.add('active');
-        button.setAttribute('aria-selected', 'true');
-
-        const specialty = button.getAttribute('data-specialty');
-        doctorCards.forEach(card => {
-          const cardSpecialty = card.getAttribute('data-specialty') || '';
-          if (specialty === 'all' || specialty === cardSpecialty) {
-            card.style.display = '';
-            card.removeAttribute('aria-hidden');
-          } else {
-            card.style.display = 'none';
-            card.setAttribute('aria-hidden', 'true');
-          }
-        });
-      });
-    });
+  // Smooth navigation (fade out then navigate) to avoid flicker between pages
+  function smoothNavigate(href) {
+    if (prefersReducedMotion) {
+      window.location.href = href;
+      return;
+    }
+    const pageEl = document.querySelector('.page');
+    if (!pageEl) { window.location.href = href; return; }
+    pageEl.style.transition = 'opacity 260ms ease, transform 260ms ease';
+    pageEl.style.opacity = 0;
+    pageEl.style.transform = 'translateY(6px)';
+    setTimeout(() => window.location.href = href, 250);
   }
 
-  // ---------- Accordion (services.html) ----------
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Page enter animation (subtle)
+    const pageEl = document.querySelector('.page');
+    if (pageEl && !prefersReducedMotion) {
+      pageEl.style.opacity = 0;
+      pageEl.style.transform = 'translateY(6px)';
+      requestAnimationFrame(() => {
+        pageEl.style.transition = 'opacity 260ms ease, transform 260ms ease';
+        pageEl.style.opacity = 1;
+        pageEl.style.transform = 'translateY(0)';
+      });
+    }
 
-  if (accordionHeaders.length) {
-    accordionHeaders.forEach(header => {
-      const content = header.nextElementSibling;
-      if (!content) return;
+    /* ---------- Hamburger Toggle & Nav behavior ---------- */
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navMenu = document.querySelector('nav.site-nav');
 
-      // Ensure aria attributes
-      header.setAttribute('aria-expanded', content.hasAttribute('hidden') ? 'false' : 'true');
+    if (hamburgerBtn && navMenu) {
+      hamburgerBtn.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      });
 
-      header.addEventListener('click', () => {
-        const isActive = header.classList.contains('active');
+      // Intercept internal navigation clicks inside nav to animate
+      navMenu.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        // close nav
+        navMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
 
-        // Close all
-        accordionHeaders.forEach(h => {
-          const c = h.nextElementSibling;
-          h.classList.remove('active');
-          h.setAttribute('aria-expanded', 'false');
-          if (c) {
-            c.style.maxHeight = null;
-            c.setAttribute('hidden', '');
-          }
-        });
-
-        // Open clicked if it wasn't active
-        if (!isActive) {
-          header.classList.add('active');
-          header.setAttribute('aria-expanded', 'true');
-          if (content) {
-            content.removeAttribute('hidden');
-            // expand smoothly
-            const height = content.scrollHeight;
-            content.style.maxHeight = height + 36 + 'px';
-          }
+        // if internal same-origin link, animate
+        if (a.href && a.hostname === location.hostname) {
+          e.preventDefault();
+          smoothNavigate(a.href);
         }
       });
-    });
-  }
 
-  // ---------- WhatsApp form handler (contact.html) ----------
-  const contactForm = document.getElementById('whatsapp-form');
-  const whatsappNumber = '918700127481'; // country code + number, no plus
+      // Close menu on outside click
+      document.addEventListener('click', (e) => {
+        const path = e.composedPath ? e.composedPath() : (e.path || []);
+        if (!path.includes(navMenu) && !path.includes(hamburgerBtn) && navMenu.classList.contains('open')) {
+          navMenu.classList.remove('open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+    /* ---------- Doctor Tabs (doctors.html) ---------- */
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const doctorCards = document.querySelectorAll('.doctor-card');
+    if (tabButtons.length && doctorCards.length) {
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+          btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+          const specialty = btn.getAttribute('data-specialty');
+          doctorCards.forEach(card => {
+            const cs = card.getAttribute('data-specialty') || '';
+            if (specialty === 'all' || specialty === cs) { card.style.display = ''; card.removeAttribute('aria-hidden'); }
+            else { card.style.display = 'none'; card.setAttribute('aria-hidden','true'); }
+          });
+        });
+      });
+    }
 
-      // Basic trimming & validation
-      const name = (document.getElementById('name').value || '').trim();
-      const email = (document.getElementById('email').value || '').trim();
-      const subject = (document.getElementById('subject').value || '').trim();
-      const message = (document.getElementById('message').value || '').trim();
+    /* ---------- Accordion (services.html) ---------- */
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    if (accordionHeaders.length) {
+      accordionHeaders.forEach(header => {
+        const content = header.nextElementSibling;
+        if (!content) return;
+        header.setAttribute('aria-expanded', content.hasAttribute('hidden') ? 'false' : 'true');
 
-      if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields before sending.');
-        return;
+        header.addEventListener('click', () => {
+          const wasActive = header.classList.contains('active');
+          // close all
+          accordionHeaders.forEach(h => {
+            h.classList.remove('active');
+            h.setAttribute('aria-expanded', 'false');
+            const c = h.nextElementSibling;
+            if (c) { c.style.maxHeight = null; c.setAttribute('hidden',''); }
+          });
+          // open if was not active
+          if (!wasActive) {
+            header.classList.add('active');
+            header.setAttribute('aria-expanded','true');
+            if (content) {
+              content.removeAttribute('hidden');
+              // smooth expand
+              const height = content.scrollHeight;
+              content.style.maxHeight = (height + 36) + 'px';
+            }
+          }
+        });
+      });
+    }
+
+    /* ---------- WhatsApp Form (contact.html) ---------- */
+    const contactForm = document.getElementById('whatsapp-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = (document.getElementById('name').value || '').trim();
+        const email = (document.getElementById('email').value || '').trim();
+        const subject = (document.getElementById('subject').value || '').trim();
+        const message = (document.getElementById('message').value || '').trim();
+        if (!name || !email || !subject || !message) {
+          alert('Please complete all fields.');
+          return;
+        }
+        const whatsappMessage = `*New Inquiry from Medics Care Hospital Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A%0A*Message:* ${message}`;
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(url, '_blank');
+        contactForm.reset();
+        alert('WhatsApp opened — please tap Send in WhatsApp to submit.');
+      });
+    }
+
+    /* ---------- Intercept regular internal links (page-wide) to animate transitions ---------- */
+    document.querySelectorAll('a').forEach(a => {
+      // skip links that have download, mailto, tel, target blank, or hash only
+      if (!a.href) return;
+      const isMailto = a.href.startsWith('mailto:') || a.href.startsWith('tel:') || a.target === '_blank';
+      if (isMailto) return;
+      if (a.hostname === location.hostname) {
+        a.addEventListener('click', (ev) => {
+          // if it is an in-page anchor or JS-driven link, skip
+          if (a.hash && a.pathname === location.pathname) return;
+          // allow special cases (like buttons with data attributes)
+          ev.preventDefault();
+          smoothNavigate(a.href);
+        });
       }
-
-      // Build message (use encodeURIComponent)
-      const whatsappMessage =
-        `*New Inquiry from Medics Care Hospital Website*\n\n` +
-        `*Name:* ${name}\n` +
-        `*Email:* ${email}\n` +
-        `*Subject:* ${subject}\n\n` +
-        `*Message:* ${message}`;
-
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-      // Open WhatsApp Web in a new tab
-      window.open(url, '_blank');
-
-      // Reset form and notify user
-      contactForm.reset();
-      alert('A WhatsApp window has been opened with your message. Please press send there to submit.');
     });
-  }
-});
-// Mobile hamburger toggle + close on link click
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const navMenu = document.querySelector('nav');
 
-if (hamburgerBtn && navMenu) {
-  hamburgerBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    // toggle aria
-    const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
-    hamburgerBtn.setAttribute('aria-expanded', String(!expanded));
-  });
-
-  // close when a link inside nav is clicked (improves UX)
-  navMenu.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.tagName === 'A') {
-      navMenu.classList.remove('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // optional: close on outside click (click outside nav)
-  document.addEventListener('click', (e) => {
-    const insideHeader = e.composedPath().includes(navMenu) || e.composedPath().includes(hamburgerBtn);
-    if (!insideHeader && navMenu.classList.contains('open')) {
-      navMenu.classList.remove('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
+  }); // DOMContentLoaded end
+})();

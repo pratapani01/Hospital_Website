@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Medics Care Hospital — Our Doctors</title>
-  <meta name="description" content="Meet the specialist doctors at Medics Care Hospital. Cardiology, Pediatrics, Orthopedics and more." />
+  <meta name="description" content="Meet the specialist doctors at Medics Care Hospital." />
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="page" data-page="doctors">
   <header class="site-header" role="banner">
     <a class="header-logo-link" href="index.html" aria-label="Medics Care Hospital home">
       <div class="logo">
@@ -20,8 +20,10 @@
         <span class="medics-red">Hospital</span>
       </div>
     </a>
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
-    <i class="fas fa-bars"></i>
+
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
 
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <ul>
@@ -29,6 +31,7 @@
         <li><a href="doctors.html" class="active" aria-current="page">Doctors</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact Us</a></li>
+        <li class="appointment-mobile"><a href="contact.html">Book an Appointment</a></li>
       </ul>
     </nav>
 
@@ -51,12 +54,12 @@
         <button class="tab-btn" data-specialty="cardiology" role="tab">Cardiology</button>
         <button class="tab-btn" data-specialty="pediatrics" role="tab">Pediatrics</button>
         <button class="tab-btn" data-specialty="orthopedics" role="tab">Orthopedics</button>
-        <button class="tab-btn" data-specialty="neurology" role="tab">Neurology</button>
+        <button class="tab-btn" data-specialty="neuro" role="tab">Neurology</button>
         <button class="tab-btn" data-specialty="gastro">Gastro</button>
-<button class="tab-btn" data-specialty="pulmo">Pulmonology</button>
-<button class="tab-btn" data-specialty="physician">Physician</button>
-<button class="tab-btn" data-specialty="surgery">Surgery</button>
-<button class="tab-btn" data-specialty="gyn">Gynaecology</button>
+        <button class="tab-btn" data-specialty="pulmo">Pulmonology</button>
+        <button class="tab-btn" data-specialty="physician">Physician</button>
+        <button class="tab-btn" data-specialty="surgery">Surgery</button>
+        <button class="tab-btn" data-specialty="gyn">Gynaecology</button>
       </div>
 
       <div class="doctors-grid" aria-live="polite">
@@ -93,6 +96,7 @@
             <a href="#" class="profile-link">View Profile &rarr;</a>
         </div>
     </article>
+
     <!-- Dr. Rohit Bhadauria — Physician -->
     <article class="doctor-card" data-specialty="physician">
         <img src="images/doctor-m-9.jpg" alt="Dr. Rohit Bhadauria" class="doctor-photo" />
@@ -103,7 +107,6 @@
             <a href="#" class="profile-link">View Profile &rarr;</a>
         </div>
     </article>
-    
 
     <!-- Dr. Devendra Mishra — Physician -->
     <article class="doctor-card" data-specialty="physician">

@@ -904,3 +904,75 @@ nav {
     max-width: 90%;
   }
 }
+/* ----------------------------- */
+/* NAVIGATION LINK UNDERLINE EFFECT */
+/* ----------------------------- */
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin: 0 15px;
+    padding: 5px 0;
+    font-weight: 600;
+    position: relative; /* Needed for the underline */
+}
+
+/* Underline (hidden by default) */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover effect */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active page stays underlined */
+nav ul li a.active::after {
+    width: 100%;
+}
+/* Hide the mobile appointment button on desktop */
+.appointment-mobile {
+    display: none;
+}
+@media (max-width: 768px) {
+    .appointment-mobile {
+        display: block;
+    }
+}
+/* ==== Fix: Make nav underline visible on desktop (stacking issue) ==== */
+.site-header .site-nav ul li a {
+  position: relative !important;   /* ensure ::after is positioned relative to the link */
+  z-index: 2 !important;           /* keep link above its pseudo-element */
+}
+
+/* Draw underline above the header background but below text */
+.site-header .site-nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;                     /* tweak this if it looks too high/low */
+  width: 0%;
+  height: 3px;
+  background: var(--primary-blue);
+  transition: width 260ms cubic-bezier(.4,0,.2,1);
+  z-index: 1 !important;           /* must be lower than link (z-index:2) so text stays clickable */
+}
+
+/* show underline on hover/active */
+.site-header .site-nav ul li a:hover::after,
+.site-header .site-nav ul li a.active::after {
+  width: 100% !important;
+}
+
+/* make sure header background doesn't cover the underline */
+.site-header {
+  background: var(--white) !important;
+}

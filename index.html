@@ -16,7 +16,8 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<!-- add class "page" to enable page transitions -->
+<body class="page" data-page="home">
   <header class="site-header" role="banner">
     <a class="header-logo-link" href="index.html" aria-label="Medics Care Hospital home">
       <div class="logo">
@@ -26,10 +27,10 @@
         <span class="medics-red">Hospital</span>
       </div>
     </a>
-    <button class="hamburger" id="hamburger-btn" aria-label="Menu">
-    <i class="fas fa-bars"></i>
-</button>
 
+    <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
 
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <ul>
@@ -37,9 +38,8 @@
         <li><a href="doctors.html">Doctors</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <!-- inside nav ul (add near the other li links) -->
-<!-- <li class="appointment-mobile"><a href="contact.html">Book an Appointment</a></li> -->
-
+        <!-- mobile CTA (displayed only on small screens by CSS) -->
+        <li class="appointment-mobile"><a href="contact.html">Book an Appointment</a></li>
       </ul>
     </nav>
 
