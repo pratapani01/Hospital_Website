@@ -152,6 +152,7 @@
         });
       }
     });
+    
 
   }); // DOMContentLoaded end
 })();

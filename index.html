@@ -47,56 +47,174 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-content container">
+    <!-- HERO -->
+    <section class="hero" aria-label="Main hero">
+      <div class="hero-content container"   >
         <h1>Excellence in Care, Right Here.</h1>
+
+        <!-- longer hero subheading -->
         <p class="mission-statement">
           Your health is our mission. We combine advanced medical technology with compassionate, patient-centered care to serve our community 24/7.
+          <!-- From immediate emergency response to long-term chronic care, our multidisciplinary team works together to deliver timely and effective treatment. -->
         </p>
-        <div class="hero-actions">
+
+        <div class="hero-actions" role="region" aria-label="Primary actions">
           <a href="doctors.html" class="btn-primary">Meet Our Specialists</a>
           <a href="contact.html" class="btn-secondary" aria-label="Emergency phone number">Emergency: +91 8700127481</a>
+        </div>
+
+        <!-- quick callouts below hero actions (small badges) -->
+        <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+            <i class="fas fa-ambulance" aria-hidden="true"></i>
+            <small>24x7 Emergency</small>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+            <i class="fas fa-procedures" aria-hidden="true"></i>
+            <small>ICU & Critical Care</small>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+            <i class="fas fa-notes-medical" aria-hidden="true"></i>
+            <small>Surgical & Diagnostic Support</small>
+          </div>
+          <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+
+  <!-- Emergency -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-ambulance" aria-hidden="true"></i>
+    <small>24x7 Emergency</small>
+  </div>
+
+  <!-- ICU -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-procedures" aria-hidden="true"></i>
+    <small>ICU & Critical Care</small>
+  </div>
+
+  <!-- Surgery -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-notes-medical" aria-hidden="true"></i>
+    <small>Surgical & Diagnostic Support</small>
+  </div>
+
+  <!-- Pediatrics -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-child" aria-hidden="true"></i>
+    <small>Pediatrics (OPD & IPD)</small>
+  </div>
+
+  <!-- Orthopedics -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-bone" aria-hidden="true"></i>
+    <small>Orthopedics & Trauma</small>
+  </div>
+
+  <!-- Gynecology -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-baby" aria-hidden="true"></i>
+    <small>Obs & Gynae</small>
+  </div>
+
+  <!-- Ambulance -->
+  <div style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); padding:8px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); color:#fff;">
+    <i class="fas fa-phone-square-alt" aria-hidden="true"></i>
+    <small>Ambulance Facility</small>
+  </div>
+
+</div>
+
         </div>
       </div>
     </section>
 
+    <!-- SERVICES SNAPSHOT -->
+    <section class="container" aria-labelledby="services-snapshot" style="padding:40px 0;">
+      <h2 id="services-snapshot" style="text-align:center; margin-bottom:18px; color:var(--primary-blue);">Services Snapshot</h2>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:18px;">
+        <div style="background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+          <h3 style="margin-bottom:8px;">24x7 Emergency Care</h3>
+          <p style="color:#6c757d;">Rapid triage, resuscitation and immediate specialist access for trauma and acute medical emergencies.</p>
+          <p style="font-weight:700; margin-top:10px;"><a href="services.html#emergency" style="text-decoration:none; color:var(--primary-blue);">Read more &rarr;</a></p>
+        </div>
+
+        <div style="background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+          <h3 style="margin-bottom:8px;">ICU & Critical Care</h3>
+          <p style="color:#6c757d;">Modern ICU with ventilatory and invasive monitoring facilities staffed by trained intensivists.</p>
+          <p style="font-weight:700; margin-top:10px;"><a href="services.html#icu" style="text-decoration:none; color:var(--primary-blue);">Read more &rarr;</a></p>
+        </div>
+
+        <div style="background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+          <h3 style="margin-bottom:8px;">Surgical Services</h3>
+          <p style="color:#6c757d;">Fully equipped operation theaters for elective and emergency surgeries, including laparoscopy.</p>
+          <p style="font-weight:700; margin-top:10px;"><a href="services.html#medicine-surgery" style="text-decoration:none; color:var(--primary-blue);">Read more &rarr;</a></p>
+        </div>
+
+        <div style="background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04);">
+          <h3 style="margin-bottom:8px;">Outpatient & Diagnostics</h3>
+          <p style="color:#6c757d;">OPDs across major specialties with on-site diagnostics such as lab, X-ray and ultrasound.</p>
+          <p style="font-weight:700; margin-top:10px;"><a href="services.html#pathology" style="text-decoration:none; color:var(--primary-blue);">Read more &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US (expanded) -->
     <section class="highlights container" aria-labelledby="why-choose-us">
-      <h2 id="why-choose-us">Why Choose Us?</h2>
-      <div class="highlight-grid">
+      <h2 id="why-choose-us" style="text-align:center;">Why Choose Us?</h2>
+      <div class="highlight-grid" style="margin-top:30px;">
         <article class="highlight-item">
           <i class="icon fas fa-user-md" aria-hidden="true"></i>
           <h3>Experienced Doctors</h3>
-          <p>Over 100 board-certified specialists across 15 departments.</p>
+          <p>Our team comprises senior consultants with years of experience in critical care, surgery, medicine and paediatrics.</p>
         </article>
 
         <article class="highlight-item">
           <i class="icon fas fa-ambulance" aria-hidden="true"></i>
           <h3>24/7 Emergency</h3>
-          <p>Dedicated trauma center ready to provide critical care at any hour.</p>
+          <p>Dedicated trauma and emergency services with a skilled team available around the clock for immediate care.</p>
         </article>
 
         <article class="highlight-item">
           <i class="icon fas fa-award" aria-hidden="true"></i>
           <h3>Advanced Technology</h3>
-          <p>State-of-the-art diagnostic and surgical equipment for precision.</p>
+          <p>Modern diagnostic imaging, operation theaters and monitoring systems provide accurate diagnosis and safer outcomes.</p>
         </article>
 
         <article class="highlight-item">
           <i class="icon fas fa-heartbeat" aria-hidden="true"></i>
           <h3>Patient-First Approach</h3>
-          <p>We believe in treating the person, not just the condition.</p>
+          <p>We build personalized treatment plans and provide clear communication so patients and families are involved in care decisions.</p>
         </article>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p>&copy; 2025 Medics Care Hospital. All Rights Reserved.</p>
-      <div class="social-links" aria-hidden="true"></div>
-    </div>
-  </footer>
+    <!-- STATS -->
+    <section class="container" aria-label="Hospital statistics" style="padding:36px 0; text-align:center;">
+      <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+        <div style="min-width:160px; padding:18px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+          <div style="font-size:28px; color:var(--primary-blue); font-weight:800;">20+</div>
+          <div style="color:#6c757d; margin-top:6px;">Experienced Doctors</div>
+        </div>
 
-  <script src="js/main.js"></script>
-</body>
-</html>
+        <div style="min-width:160px; padding:18px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+          <div style="font-size:28px; color:var(--primary-blue); font-weight:800;">50+</div>
+          <div style="color:#6c757d; margin-top:6px;">Inpatient Beds</div>
+        </div>
+
+        <div style="min-width:160px; padding:18px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+          <div style="font-size:28px; color:var(--primary-blue); font-weight:800;">24/7</div>
+          <div style="color:#6c757d; margin-top:6px;">Emergency Response</div>
+        </div>
+
+        <div style="min-width:160px; padding:18px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+          <div style="font-size:28px; color:var(--primary-blue); font-weight:800;">100+</div>
+          <div style="color:#6c757d; margin-top:6px;">Patients Treated / Month</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <!-- <section class="container" aria-labelledby="testimonials" style="padding:36px 0;">
+      <h2 id="testimonials" style="text-align:center; color:var(--primary-blue);">Patient Stories</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:18px;">
+        <blockquote style="background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 14px rgba(0,0,0, -->

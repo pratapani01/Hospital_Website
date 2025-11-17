@@ -148,7 +148,7 @@ footer {
 .hero {
     /* REPLACE 'placeholder-hero.jpg' with a high-quality, professional image */
     background: url('../images/placeholder-hero.jpg') no-repeat center center/cover;
-    height: 60vh; /* Viewport height */
+    height: 90vh; /* Viewport height */
     display: flex;
     align-items: center;
     justify-content: flex-start;
